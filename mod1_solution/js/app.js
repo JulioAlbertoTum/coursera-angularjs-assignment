@@ -1,11 +1,11 @@
 (function () {
 'use strict';
 
-angular.module('LunchApp', [])
-.controller('LunchController', LunchController);
+angular.module('LunchCheckApp', [])
+.controller('LunchCheckController', LunchCheckController);
 
-LunchController.$inject = ['$scope'];
-function LunchController($scope) {
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope) {
   // $scope.message ="";
   $scope.stateMessage = "s-default"
   $scope.count = 0;
