@@ -9,7 +9,7 @@ angular.module('NarrowItDownApp',[])
 
 function FoundItemsDirective(){
     var ddo = {
-        // template: '<ol><li ng-repeat="item in list.items">{{item.name}} {{item.short_name}} {{item.description}}<button class="btn btn-danger" ng-click="list.onRemove({index:$index});">Dont want this one!</button></li></ol>',
+        
         templateUrl: 'foundItems.html',
         scope:{
             items:'<',
