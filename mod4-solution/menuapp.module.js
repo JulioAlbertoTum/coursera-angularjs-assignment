@@ -15,14 +15,23 @@ function RoutesConfig($stateProvider, $urlRouterProvider){
 		url: '/',
 		templateUrl:'home.html'
 	})
-	.state('categories',{
-		url: '/categories',
+
+	.state('categories', {
+		url:'/categories',
+		template:'<h1> Vista de las categorias </h1>'
+	})
+	.state('items', {
+		url:'/items',
+		template:'<h1> Vista de los Items </h1>'
+	})
+	.state('categories1',{
+		url: '/categories1',
 		templateUrl:'categoriesView.html',
 		controller:'CategoriesController as $ctrl'
 		// component: 'categories'
 	})
-	.state('items',{
-		url: '/items',
+	.state('items1',{
+		url: '/items1',
 		template:'<div>Vista de los items</div>'
 	});
 }
