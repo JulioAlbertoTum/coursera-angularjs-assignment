@@ -4,10 +4,11 @@ angular.module('data')
 .service('MenuDataService',MenuDataService);
 
 MenuDataService.$inject = ['$http','$q'];
-function MenuDataService($http){
+function MenuDataService($http,$q){
     var service = this
-    service.categories = undefined;
-    
+    var categories = undefined;
+    var items = undefined;
+
     service.getAllCategories = function(){
         if(!categories){
             var deferred = $q.defer();
@@ -25,7 +26,19 @@ function MenuDataService($http){
     }
 
     service.getItemsForCategory = function(categoryShortName){
-        // pendiente de resolver
+        if(!items){
+            var deferred = $q.defer();
+            $http.get("https://davids-restaurant.herokuapp.com/menu_items.json?category="+categoryShortName).
+            then(function(result){
+                items = result.data.menu_items;
+                deferred.resolve(items);
+            }, function(error){
+                items = error;
+                deferred.reject(error);
+            });
+            items = deferred.promise;
+        }
+        return $q.when(items);
     }
 }
 })();

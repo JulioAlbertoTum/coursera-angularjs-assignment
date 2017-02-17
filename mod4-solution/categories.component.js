@@ -2,16 +2,18 @@
 'use strict';
 angular.module('MenuApp')
 .component('categories', {
-    template: '<div class="categories"></div>',
+    templateUrl: 'categories.html',
     controller: CategoriesController,
     bindings:{
         categories : '<'
     }
 });
 
-CategoriesController.$inject = ['$q','MenuDataService']
-function CategoriesController($q, MenuDataService){
-    var ctrl = this;
+// CategoriesController.$inject = ['$q','MenuDataService']
+function CategoriesController(){
+    var $ctrl = this;
+
+
 }
 
 })();
