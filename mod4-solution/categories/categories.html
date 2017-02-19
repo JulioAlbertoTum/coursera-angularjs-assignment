@@ -1,6 +1,8 @@
-<ol>
-	<li ng-repeat="category in $ctrl.categories">
-		{{category.name}}	
-		<a href="">{{category.short_name}}</a>
-	</li>
+
+<ol class="btn-group-vertical col-md-12" role="group">
+	<a ui-sref="items({category:category.short_name})" class="btn btn-primary text-center size-font-category" ng-repeat="category in $ctrl.categories">
+		<!-- <a href="" class="btn btn-primary">{{category.name}}</a>	 -->
+		<!-- <a href="">{{category.short_name}}</a> -->
+		{{category.name}} {{category.short_name}}
+	</a>
 </ol>

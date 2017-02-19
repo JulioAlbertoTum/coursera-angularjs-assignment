@@ -1,18 +1,19 @@
 (function(){
 'use strict';
 angular.module('data')
-.service('MenuDataService',MenuDataService);
+.service('MenuDataService',MenuDataService)
+.constant('ApiBasePath',  'https://davids-restaurant.herokuapp.com');
+MenuDataService.$inject = ['$http','$q','ApiBasePath'];
 
-MenuDataService.$inject = ['$http','$q'];
-function MenuDataService($http,$q){
+function MenuDataService($http, $q, ApiBasePath){
     var service = this
     var categories = undefined;
     var items = undefined;
 
     service.getAllCategories = function(){
-        if(!categories){
+       
             var deferred = $q.defer();
-            $http.get("https://davids-restaurant.herokuapp.com/categories.json")
+            $http.get(ApiBasePath+"/categories.json")
             .then(function(result){
                 categories = result.data;
                 deferred.resolve(categories);
@@ -21,14 +22,15 @@ function MenuDataService($http,$q){
                 deferred.reject(error);
             });
             categories = deferred.promise;
-        }
-        return $q.when(categories);
+       
+        return categories
+       
     }
 
     service.getItemsForCategory = function(categoryShortName){
-        if(!items){
+      
             var deferred = $q.defer();
-            $http.get("https://davids-restaurant.herokuapp.com/menu_items.json?category="+categoryShortName).
+            $http.get(ApiBasePath+"/menu_items.json?category="+categoryShortName).
             then(function(result){
                 items = result.data.menu_items;
                 deferred.resolve(items);
@@ -37,8 +39,9 @@ function MenuDataService($http,$q){
                 deferred.reject(error);
             });
             items = deferred.promise;
-        }
-        return $q.when(items);
+
+        return items;
+      
     }
 }
 })();

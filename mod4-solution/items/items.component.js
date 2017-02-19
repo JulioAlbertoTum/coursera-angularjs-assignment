@@ -2,7 +2,7 @@
 "use strict";
 angular.module('MenuApp')
 .component('items',{
-	templateUrl: 'items.html',
+	templateUrl: 'items/items.html',
 	controller: ItemsController,
 	bindings:{
 		items : '<'
@@ -12,4 +12,5 @@ angular.module('MenuApp')
 function ItemsController(){
 	var $ctrl = this;
 }
+
 })();
