@@ -1,0 +1,34 @@
+<div class="container" >
+	<div class="col-md-8 col-md-offset-2">
+	<h2 class="text-center">User Profile</h2>
+	
+	
+	
+	<!-- <h2 id="menu-categories-title" class="text-center">User Profile</h2> -->
+	<div  class="alert alert-warning" ng-show="myInfoCtrl.notUserRegister">
+		Not Signed Up Yet. <a ui-sref="signup">Sign up Now!</a>
+	</div>
+	<div class="panel panel-default" ng-show="!myInfoCtrl.notUserRegister" style="background-color: #61122f !important">
+	<div class="panel-body">
+		<div class="row">
+		<div class="col-md-6">
+			<strong>First Name : </strong> {{ myInfoCtrl.userData.first_name }} <br>
+			<strong>Last Name : </strong> {{ myInfoCtrl.userData.last_name }} <br>
+			<strong>Email : </strong> {{ myInfoCtrl.userData.email }} <br>
+			<strong> Phone : </strong> {{ myInfoCtrl.userData.phone }} <br>
+		</div>
+		<div class="col-md-6">
+		<div class="thumbnail" style="background-color: #61122f !important">
+			<h4 class="text-center">My Favorite Lunch</h4>
+      		<img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.userData.fav_lunch.short_name}}.jpg" alt="{{myInfoCtrl.userData.fav_lunch.name}}">
+      		<div class="caption">
+        		<h3  style="background-color: #61122f !important; color: white !important;"> {{myInfoCtrl.userData.fav_lunch.name}} </h3>
+        		<p  style="background-color: #61122f !important; color: white !important;">{{myInfoCtrl.userData.fav_lunch.description}}</p>
+      		</div>
+      	</div>
+      	</div>
+      	</div>
+	</div>
+	</div>
+	</div>
+</div>
